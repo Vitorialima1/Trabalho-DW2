@@ -96,3 +96,9 @@ Todas as páginas compartilham o mesmo cabeçalho, menu e rodapé.
    - Terminal: python -m http.server 8000 e acesse http://localhost:8000.
 
 A busca de CEP precisa de internet. O resto do site funciona offline.
+
+<img width="1271" height="708" alt="image" src="https://github.com/user-attachments/assets/7b6791e0-aca6-4811-8abc-e842c1e57b6d" />
+
+<img width="401" height="499" alt="image" src="https://github.com/user-attachments/assets/b8ff386c-ba02-4576-850e-c2d4adc93c31" />
+
+
