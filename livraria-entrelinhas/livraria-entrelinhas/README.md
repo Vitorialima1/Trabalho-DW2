@@ -1,7 +1,7 @@
 # Livraria Entrelinhas
 
-Site de uma livraria fictícia feito para a Atividade Final – Página Web de Livraria.
-Tem página inicial, catálogo, detalhes do livro, carrinho de compras e contato/sobre.
+Site de uma livraria feito para a Atividade Final – Página Web de Livraria.
+Página inicial, catálogo, detalhes do livro, carrinho de compras e contato/sobre.
 
 ## Integrantes
 
