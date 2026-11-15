@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo | Livraria Entrelinhas</title>
+  <meta name="description" content="Catálogo completo da Livraria Entrelinhas com busca e filtros.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="js/tema.js"></script>
+  <script src="js/dados.js" defer></script>
+  <script src="js/comum.js" defer></script>
+  <script src="js/catalogo.js" defer></script>
+</head>
+<body data-pagina="catalogo">
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="cabecalho">
+    <div class="container cabecalho__interno">
+      <a href="index.html" class="logo">
+        <svg class="logo__icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M6 10c6-2 12-1 18 3v27c-6-4-12-5-18-3z" fill="currentColor" opacity=".85"/>
+          <path d="M42 10c-6-2-12-1-18 3v27c6-4 12-5 18-3z" fill="currentColor"/>
+          <path d="M11 18h8M11 23h8M29 18h8M29 23h8" stroke="var(--cor-fundo)" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="logo__texto"><span class="logo__sobre">Livraria</span><span class="logo__nome">Entrelinhas</span></span>
+      </a>
+
+      <nav class="navegacao" aria-label="Menu principal">
+        <ul class="menu" id="menu-principal">
+          <li><a href="index.html" data-link-pagina="inicio">Início</a></li>
+          <li><a href="catalogo.html" data-link-pagina="catalogo">Catálogo</a></li>
+          <li><a href="contato.html" data-link-pagina="contato">Contato e sobre</a></li>
+        </ul>
+      </nav>
+
+      <div class="cabecalho__acoes">
+        <button class="botao-icone" type="button" data-botao-tema aria-pressed="false" aria-label="Ativar modo escuro">
+          <svg class="icone-lua" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+          <svg class="icone-sol" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        </button>
+        <a class="botao-icone carrinho-link" href="carrinho.html" data-link-carrinho data-link-pagina="carrinho" aria-label="Carrinho">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h2.2l2.3 11.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/></svg>
+          <span class="contador-carrinho" data-contador-carrinho hidden>0</span>
+        </a>
+        <button class="botao-icone menu-botao" type="button" data-botao-menu aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+          <span class="menu-botao__barras" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container secao">
+      <h1 class="pagina__titulo">Catálogo</h1>
+      <p class="pagina__intro">Busque pelo título ou pelo nome do autor, filtre por categoria e ordene como preferir.</p>
+
+      <section class="filtros" aria-labelledby="titulo-filtros">
+        <h2 id="titulo-filtros" class="sr-only">Filtros do catálogo</h2>
+        <form class="filtros__busca" role="search" data-form-busca>
+          <label for="busca">Buscar por título ou autor</label>
+          <input type="search" id="busca" name="busca" placeholder="Ex.: Tolkien, Dom Casmurro…" autocomplete="off">
+        </form>
+        <div class="filtros__linha">
+          <div class="filtros__categorias" role="group" aria-label="Filtrar por categoria" data-botoes-categoria></div>
+          <div class="filtros__extras">
+            <button type="button" class="filtro-botao filtro-botao--favoritos" data-so-favoritos aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg>
+              Só favoritos
+            </button>
+            <div class="campo-ordenacao">
+              <label for="ordenacao">Ordenar por</label>
+              <select id="ordenacao">
+                <option value="padrao">Relevância</option>
+                <option value="preco-menor">Menor preço</option>
+                <option value="preco-maior">Maior preço</option>
+                <option value="titulo">Título (A–Z)</option>
+                <option value="lancamento">Mais recentes</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p class="resultado" data-resultado aria-live="polite"></p>
+      <div class="grade-livros" data-catalogo></div>
+      <div class="mensagem-vazia" data-vazio hidden>
+        <p>Nenhum livro encontrado com esses filtros. Tente outra busca ou escolha “Todas” as categorias.</p>
+      </div>
+      <div class="carregar-mais">
+        <button type="button" class="botao botao--secundario" data-carregar-mais hidden>Carregar mais livros</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape__grade">
+      <section class="rodape__bloco" aria-labelledby="rodape-marca">
+        <h2 id="rodape-marca" class="rodape__titulo">Livraria Entrelinhas</h2>
+        <p>Livros escolhidos a dedo, café passado na hora e gente que gosta de conversar sobre histórias.</p>
+      </section>
+      <section class="rodape__bloco" aria-labelledby="rodape-endereco">
+        <h2 id="rodape-endereco" class="rodape__titulo">Endereço</h2>
+        <address>
+          Rua das Letras, 123 – Centro<br>
+          São Paulo – SP, 01010-000<br>
+          <a href="tel:+551140001234">(11) 4000-1234</a><br>
+          <a href="mailto:contato@entrelinhas.com.br">contato@entrelinhas.com.br</a>
+        </address>
+      </section>
+      <section class="rodape__bloco" aria-labelledby="rodape-horario">
+        <h2 id="rodape-horario" class="rodape__titulo">Horário</h2>
+        <p>Segunda a sexta: 9h às 20h<br>Sábado: 9h às 18h<br>Domingo: fechado</p>
+      </section>
+      <section class="rodape__bloco" aria-labelledby="rodape-redes">
+        <h2 id="rodape-redes" class="rodape__titulo">Redes sociais</h2>
+        <ul class="redes">
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (abre em nova aba)</span></a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (abre em nova aba)</span></a></li>
+          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube<span class="sr-only"> (abre em nova aba)</span></a></li>
+        </ul>
+      </section>
+    </div>
+    <p class="rodape__direitos">© <span data-ano>2026</span> Livraria Entrelinhas. Todos os direitos reservados. Livraria fictícia criada para fins acadêmicos.</p>
+  </footer>
+
+  <div class="aviso" data-aviso role="status" aria-live="polite"></div>
+</body>
+</html>
